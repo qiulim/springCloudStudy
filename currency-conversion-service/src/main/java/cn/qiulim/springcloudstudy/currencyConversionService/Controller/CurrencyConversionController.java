@@ -2,6 +2,8 @@ package cn.qiulim.springcloudstudy.currencyConversionService.Controller;
 
 import cn.qiulim.springcloudstudy.currencyConversionService.Bean.CurencyConversionBean;
 import cn.qiulim.springcloudstudy.currencyConversionService.Proxy.CurrencyExchangeProxy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,8 @@ import java.util.Map;
 
 @RestController
 public class CurrencyConversionController {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private CurrencyExchangeProxy currencyExchangeProxy;
@@ -41,6 +45,8 @@ public class CurrencyConversionController {
 
 
         CurencyConversionBean body = currencyExchangeProxy.retrieveExchangeValue(from,to);
+
+        logger.info("{}", body);
         return new CurencyConversionBean(body.getId(),
                 from, to,
                 body.getConversionMultiple(),
