@@ -9,6 +9,8 @@ http://localhost:8765/currency-conversion-service/currency-convert-feign/from/US
 http://localhost:8765/currency-exchange-service/currency-exchange/from/USD/to/CN
 
 Ubuntu下安装rabbitMQ
+参照网站：
+https://jingyan.baidu.com/article/425e69e6f63990be15fc1621.html
 https://www.cnblogs.com/hongdada/p/7203589.html
 
 sudo apt-get install erlang-nox
@@ -26,4 +28,7 @@ sudo apt-get install rabbitmq-server
 安装好了以后可以使用 ps -ef|grep rabbit查看RabbitMQ的情况
 
 cd /usr/lib/rabbitmq/bin/
- sudo ./rabbitmqctl status
+sudo ./rabbitmqctl status
+
+**rabbitMQ安装完后，远程访问时候，登录不进的解决方案**
+
